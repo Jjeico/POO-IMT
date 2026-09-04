@@ -102,10 +102,22 @@ Compilateur g++
 escencie1.cpp -o exercice 1
 
 
+Notas ejercicio:
 
+  #include <iostream>
+  using namespace std;
 
+#include trae herramientas ya hechas.
+iostream es para cout y cin 
+using namespace std significa "las herramientas estándar puedo llamarlas por su nombre corto". Sin ella tendrías que escribir std::cout cada vez.
 
+  const int ANNEE_DE_BASE = 2000;
+const es como #define en C; esa constante queda siempre de ese valor. Si lo quiero cambiar, el código da error.
 
+  struct Date { int jour; int mois; int annee; };
+Es la parte que se encontraba en el ejercicio. Es un molde: dice "un objeto de tipo Date está formado por tres enteros".
+Las fechas de verdad nacen después, cuando escribes Date d1;
+ahí sí se reserva sitio en memoria para tres enteros, y accedes a cada uno con un punto: Date d1.jour o Date d1.mois o Date d1.annee
 
 
 

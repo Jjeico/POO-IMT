@@ -1,0 +1,125 @@
+Il n'aura pas de project, juste un examen final.
+Examen final: Sur papier. 3 heures. On aura de documentation.
+
+Valeur par défaut
+Le valeur par défaut sur un parametre c'est forcement le derniere. 
+
+Surcharge de fonction
+Fonctions de meme nom, parametres différents
+
+Constantes symboliques: audio commence.
+# define C1 1.25;
+# define C2 1.12;
+# define C3 C1+C2; (C3 vaut 1.37)
+
+int i = 3*C3; != 3*1.37
+              != 3*C1+C2
+              != 3*1.25+1.12
+
+Variables locales
+Peuvent etre déclarées au milieu des instructions.
+Intérêt principal: application aux boucles for.
+
+Structure
+Une structure est un type (définition sans typedef):
+struct INDIVIDU {
+  int age;
+  char nom [20];
+};
+
+INDIVIDU x;
+x.age = 25;
+...
+
+Allocation dynamique (new)
+La fonction new reserve la place de memoire suffisant pour stocker un entier et 20 char et va envoyer un pointeur. 
+Grace a cet pointeur je peut manipuler l'attribut.
+INDIVIDU* p;
+p = new INDIVIDU;      //allocation d'une estructure INDIVIU
+p->age = 25;
+...
+
+int* t;
+t = new int [100];    //allocation d'un tableau d'entiers
+t[0] = 5;
+...
+
+Libération de la mémoire:
+delete p;
+delete [] t;           //[] dans le cas d'un tableau
+
+Affichages et saisies
+#include <iostream>    //library
+#include <math.h>      //Meme que cmath
+#include <cmath>       //Meme que math.h
+
+int x = 124;
+char ch [50];
+strcpy(ch, "bonjour");
+cout<<"entier:"<<x<<"chaine:"<<ch<<endl;    // "<<" est un operateur. "cout" est une variable.
+
+int x;
+char ch[50]
+cin >> x >> ch;
+//C'est le meme que:
+cin >> x;
+cin >> ch;
+
+Usage de << :
+INDIVIDU P;
+cout << P;
+<< envoie le valeur de la variable vers le flux. (affichages)
+>> lit sur le flux et range dans la variable. (saisies) (plus rare de les utiliser)
+
+Référence: définition
+int x;
+int & y=x;     //int&: type de réference sur int
+//y est une réference de x: y est un alias de x
+y=2;           //x et y valent 2
+x=4;           //x et y valent 4
+
+
+ASSIMILER - ESSENTIEL EN C++:
+passage por valeur: int &(INDIVIDU P);      //P est une variable local de type INDIVIDU
+                                            // Des modiifcations sur p ne modifient pas q
+                                            //q est copié dans p
+INDIVIDU q;
+q.age =25;
+&(q);
+g(&q);
+
+passage par addrese: int g(INDIVIDU* P);    //Si je modifi le contenu pointé par p, q est modifié
+                                            //q n'est pas copié dans p
+                  
+//Est-ce que j'envie de faire une copie ou pas?
+//Si je ne vais pas copier mon objet j'utilise passage par addresse.
+
+int g (cont INDIVIDU* P);                   // Fonction "cont": Le pointeur P n'est pas autorisé a modifier des données sur lesquelles il pointe.
+
+
+Compilation:
+Compilateur g++
+escencie1.cpp -o exercice 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

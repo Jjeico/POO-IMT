@@ -119,9 +119,21 @@ Es la parte que se encontraba en el ejercicio. Es un molde: dice "un objeto de t
 Las fechas de verdad nacen después, cuando escribes Date d1;
 ahí sí se reserva sitio en memoria para tres enteros, y accedes a cada uno con un punto: Date d1.jour o Date d1.mois o Date d1.annee
 
+  void initialiser(Date& d, int jour, int mois, int annee = ANNEE_DE_BASE);   // ← prototipo (crea la función)
 
+  void initialiser(Date& d, int jour, int mois, int annee)                     // ← definición (llama la función)
+  {
+      d.jour  = jour;
+      d.mois  = mois;
+      d.annee = annee;
+  }
+El valor por defecto (= ANNEE_DE_BASE) se escribe solo en el prototipo. Si lo repites en la definición, error de compilación.
 
-
+void cambiar(int x)  { x = 99; }    // x es una COPIA
+void cambiar(int& x) { x = 99; }    // x ES la variable original
+int a = 5;
+cambiar(a);   // con la primera versión: a sigue valiendo 5
+              // con la segunda:         a vale 99
 
 
 
